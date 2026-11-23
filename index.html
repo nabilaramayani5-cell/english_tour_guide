@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>North Sumatra Tour Guide</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="navbar">
+    <div class="logo">NORTH<span>SUMATRA.</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#packages">Packages</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a> 
+    </nav>
+
+    <a href="#booking" class="nav-button">Book Now</a>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <p class="small-title">WELCOME TO NORTH SUMATRA</p>
+
+        <h1>Explore The Beauty<br>
+        Of <span>North Sumatra</span></h1>
+
+        <p class="hero-description">
+            Discover amazing destinations, beautiful landscapes,
+            and unforgettable cultural experiences with us.
+        </p>
+
+        <a href="#destinations" class="main-button">
+            Explore Destinations →
+        </a>
+    </div>
+
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about section" id="about">
+
+    <div class="about-image">
+        <img
+        src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900"
+        alt="Beautiful nature">
+    </div>
+
+    <div class="about-content">
+
+        <p class="section-label">ABOUT OUR TOUR</p>
+
+        <h2>Travel Beyond Your Imagination</h2>
+
+        <p>
+            North Sumatra Tour Guide is a tourism website
+            designed to introduce the beauty of North Sumatra
+            to local and international travelers.
+        </p>
+
+        <p>
+            We provide exciting travel packages, cultural
+            experiences, and helpful travel information
+            to make your journey more memorable.
+        </p>
+
+        <a href="#packages" class="text-link">
+            Discover Our Packages →
+        </a>
+
+    </div>
+
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations section" id="destinations">
+
+    <div class="section-heading">
+        <p class="section-label">EXPLORE NORTH SUMATRA</p>
+        <h2>Popular Destinations</h2>
+        <p>Discover beautiful places and unforgettable experiences.</p>
+    </div>
+
+    <div class="destination-grid">
+
+    <div class="destination-card">
+        <img src="{{ url_for('static', filename='images/lake-toba.jpg') }}"
+        alt="Lake Toba">
+
+        <div class="destination-info">
+            <span>01 / NATURAL BEAUTY</span>
+            <h3>Lake Toba</h3>
+            <p>Enjoy the magnificent lake and peaceful scenery.</p>
+        </div>
+    </div>
+
+    <div class="destination-card">
+        <img src="{{ url_for('static', filename='images/berastagi.jpg') }}"
+        alt="Berastagi">
+
+        <div class="destination-info">
+            <span>02 / MOUNTAIN ESCAPE</span>
+            <h3>Berastagi</h3>
+            <p>Explore beautiful mountains and fresh mountain air.</p>
+        </div>
+    </div>
+
+    <div class="destination-card">
+        <img src="{{ url_for('static', filename='images/maimun-palace.jpg') }}"
+        alt="Maimun Palace">
+
+        <div class="destination-info">
+            <span>03 / CULTURAL HERITAGE</span>
+            <h3>Maimun Palace</h3>
+            <p>Discover historical buildings and local culture.</p>
+        </div>
+    </div>
+
+    <div class="destination-card">
+        <img src="{{ url_for('static', filename='images/nias.jpg') }}"
+        alt="Nias Island">
+
+        <div class="destination-info">
+            <span>04 / ISLAND EXPERIENCE</span>
+            <h3>Nias Island</h3>
+            <p>Experience unique traditions and island beauty.</p>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages section" id="packages">
+
+    <div class="section-heading">
+        <p class="section-label">CHOOSE YOUR JOURNEY</p>
+        <h2>Our Tour Packages</h2>
+        <p>Choose the best travel experience for your adventure.</p>
+    </div>
+
+    <div class="package-grid">
+
+        {% for name, package in packages.items() %}
+
+        <div class="package-card">
+
+            <div class="package-top">
+                <span class="package-tag">TOUR PACKAGE</span>
+                <span class="duration">{{ package.duration }}</span>
+            </div>
+
+            <h3>{{ name }}</h3>
+
+            <p>{{ package.description }}</p>
+
+            <div class="price">
+                <small>Starting from</small>
+
+                <h2>
+                    Rp {{ "{:,.0f}".format(package.price) }}
+                </h2>
+
+                <span>/ person</span>
+            </div>
+
+            <a href="#booking" class="package-button">
+                Book This Package →
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section section" id="booking">
+
+    <div class="booking-container">
+
+        <div class="booking-info">
+
+            <p class="section-label">START YOUR JOURNEY</p>
+
+            <h2>Book Your<br>
+            Dream Adventure</h2>
+
+            <p>
+                Complete the booking form and choose your
+                favorite tour package. We are ready to help
+                you explore North Sumatra!
+            </p>
+
+            <div class="contact-detail">
+                <strong>Our Service</strong>
+                <p>Friendly Travel Experience</p>
+            </div>
+
+            <div class="contact-detail">
+                <strong>Destination</strong>
+                <p>North Sumatra, Indonesia</p>
+            </div>
+
+        </div>
+
+        <div class="booking-form">
+
+            <h3>Booking Information</h3>
+            <p>Please complete the information below.</p>
+
+            {% if error %}
+            <div class="error-message">{{ error }}</div>
+            {% endif %}
+
+            <form action="/booking" method="POST">
+
+                <label>Full Name</label>
+                <input type="text" name="name"
+                placeholder="Enter your full name" required>
+
+                <label>Email Address</label>
+                <input type="email" name="email"
+                placeholder="Enter your email" required>
+
+                <label>Phone Number</label>
+                <input type="tel" name="phone"
+                placeholder="Enter your phone number" required>
+
+                <label>Select Tour Package</label>
+                <select name="destination" required>
+
+                    <option value="">Choose your package</option>
+
+                    {% for name in packages %}
+                    <option value="{{ name }}">{{ name }}</option>
+                    {% endfor %}
+
+                </select>
+
+                <label>Travel Date</label>
+                <input type="date" name="travel_date" required>
+
+                <label>Number of Participants</label>
+                <input type="number" name="participants"
+                min="1" max="20" value="1" required>
+
+                <button type="submit" class="submit-button">
+                    Submit Booking →
+                </button>
+
+            </form>
+
+            <p class="form-note">
+                Your booking information will be processed
+                by our website.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section section" id="contact">
+
+    <div class="contact-heading">
+        <p class="section-label">GET IN TOUCH</p>
+        <h2>Let's Plan Your Journey!</h2>
+        <p>
+            Have questions about our tour packages?
+            Contact us and let us help you explore
+            the beauty of North Sumatra.
+        </p>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Our Location</h3>
+            <p>Medan, North Sumatra, Indonesia</p>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Email Address</h3>
+            <p>nabilaramayani5@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">💬</div>
+            <h3>WhatsApp</h3>
+            <p>Contact our tour admin</p>
+
+            <a
+                href="https://wa.me/6282183227195"
+                target="_blank"
+                rel="noopener"
+                class="contact-button">
+                Chat on WhatsApp →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER --
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div>
+            <h2>NORTH<span>SUMATRA.</span></h2>
+            <p>Discover the beauty of North Sumatra with us.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#packages">Packages</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div>
+            <h3>Location</h3>
+            <p>Medan, North Sumatra</p>
+            <p>Indonesia</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 North Sumatra Tour Guide.
+        All Rights Reserved.
+    </div>
+
+</footer>
+
+</body>
+</html>

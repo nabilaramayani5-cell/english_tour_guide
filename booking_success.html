@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Confirmation - North Sumatra Tour</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="success-page">
+
+    <div class="success-card">
+
+        <div class="success-icon">✓</div>
+
+        <p class="section-label">BOOKING INFORMATION</p>
+
+        <h1>Thank You, {{ name }}!</h1>
+
+        <p class="success-description">
+            Your booking information has been received.
+            Here is your travel summary.
+        </p>
+
+        <div class="receipt">
+
+            <div class="receipt-row">
+                <span>Full Name</span>
+                <strong>{{ name }}</strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Email</span>
+                <strong>{{ email }}</strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Phone</span>
+                <strong>{{ phone }}</strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Tour Package</span>
+                <strong>{{ destination }}</strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Travel Date</span>
+                <strong>{{ travel_date }}</strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Participants</span>
+                <strong>{{ participants }} Person(s)</strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Price Per Person</span>
+                <strong>Rp {{ "{:,.0f}".format(package_price) }}</strong>
+            </div>
+
+            <div class="total-row">
+                <span>Total Price</span>
+                <strong>Rp {{ "{:,.0f}".format(total_price) }}</strong>
+            </div>
+
+        </div>
+
+        <p class="notice">
+            Note: This is a booking request confirmation,
+            not a payment receipt. Please contact the tour
+            administrator to confirm availability and payment.
+        </p>
+
+        <a href="/" class="main-button back-button">
+            ← Back to Homepage
+        </a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,902 @@
+/* =========================
+   GENERAL SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #263b35;
+    background: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+.navbar {
+    width: 100%;
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #183b35;
+    letter-spacing: 1px;
+}
+
+.logo span,
+.footer span {
+    color: #c69b55;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #344b43;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #c69b55;
+}
+
+.nav-button {
+    background: #c69b55;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 9%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 29, 25, 0.85),
+            rgba(8, 29, 25, 0.25)
+        ),
+        url("images/lake-toba.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+    color: white;
+}
+
+.small-title {
+    color: #e1bd7d;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #d6ae6b;
+}
+
+.hero-description {
+    max-width: 500px;
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.main-button {
+    display: inline-block;
+    background: #d1a65e;
+    color: #183b35;
+    padding: 17px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+.section {
+    padding: 100px 9%;
+}
+
+.section-label {
+    color: #b78b49;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    color: #183b35;
+    margin-bottom: 15px;
+}
+
+.section-heading > p:last-child {
+    color: #777;
+    line-height: 1.7;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.about-content h2 {
+    font-size: 38px;
+    line-height: 1.3;
+    margin-bottom: 25px;
+    color: #183b35;
+}
+
+.about-content p {
+    color: #777;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.text-link {
+    display: inline-block;
+    color: #b78b49;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* =========================
+   DESTINATIONS
+========================= */
+
+.destinations {
+    background: #f7f8f5;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.destination-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: 0.3s;
+}
+
+.destination-card:hover {
+    transform: translateY(-7px);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.destination-info {
+    padding: 25px;
+}
+
+.destination-info span {
+    color: #b78b49;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.destination-info h3 {
+    font-size: 25px;
+    color: #183b35;
+    margin: 12px 0;
+}
+
+.destination-info p {
+    color: #777;
+    line-height: 1.7;
+}
+
+/* =========================
+   PACKAGES
+========================= */
+
+.packages {
+    background: white;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.package-card {
+    padding: 35px;
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.package-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.package-tag {
+    color: #b78b49;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.duration {
+    color: #777;
+    font-size: 13px;
+}
+
+.package-card h3 {
+    font-size: 25px;
+    color: #183b35;
+    margin-bottom: 15px;
+}
+
+.package-card > p {
+    color: #777;
+    line-height: 1.7;
+    min-height: 55px;
+}
+
+.price {
+    margin: 30px 0;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.price small {
+    color: #777;
+}
+
+.price h2 {
+    color: #b78b49;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.price span {
+    font-size: 13px;
+    color: #777;
+}
+
+.package-button {
+    display: block;
+    background: #183b35;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.package-button:hover {
+    background: #c69b55;
+}
+
+/* =========================
+   BOOKING
+========================= */
+
+.booking-section {
+    background: #f5f6f2;
+}
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.booking-info h2 {
+    font-size: 42px;
+    color: #183b35;
+    margin-bottom: 25px;
+}
+
+.booking-info > p {
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.contact-detail {
+    margin-bottom: 25px;
+}
+
+.contact-detail strong {
+    color: #183b35;
+}
+
+.contact-detail p {
+    color: #777;
+    margin-top: 8px;
+}
+
+.booking-form {
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+}
+
+.booking-form h3 {
+    color: #183b35;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.booking-form > p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.booking-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 15px 0 8px;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+    border-color: #c69b55;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #183b35;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #c69b55;
+}
+
+.form-note {
+    font-size: 12px;
+    margin-top: 20px;
+    color: #888;
+}
+
+.error-message {
+    padding: 12px;
+    background: #ffe5e5;
+    color: #a00000;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #142f2a;
+    color: white;
+    padding: 65px 9% 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer h2 {
+    margin-bottom: 20px;
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+}
+
+.footer p {
+    color: #c4ceca;
+    line-height: 1.8;
+}
+
+.footer a {
+    display: block;
+    color: #c4ceca;
+    margin-bottom: 12px;
+}
+
+.footer a:hover {
+    color: #d6ae6b;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 25px;
+    color: #c4ceca;
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: auto;
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .navbar nav {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .hero {
+        min-height: 550px;
+        padding: 60px 7%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .section {
+        padding: 65px 7%;
+    }
+
+    .about,
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-grid,
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .about-content h2,
+    .booking-info h2 {
+        font-size: 32px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section {
+    background: #ffffff;
+}
+
+.contact-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 45px;
+}
+
+.contact-heading h2 {
+    font-size: 38px;
+    color: #183b35;
+    margin-bottom: 15px;
+}
+
+.contact-heading > p:last-child {
+    color: #777;
+    line-height: 1.8;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 35px 20px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background: #ffffff;
+    transition: 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.contact-icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.contact-card h3 {
+    color: #183b35;
+    margin-bottom: 12px;
+}
+
+.contact-card p {
+    color: #777;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.contact-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 22px;
+    background: #218c54;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.contact-button:hover {
+    background: #176b3e;
+}
+
+/* CONTACT RESPONSIVE */
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-heading h2 {
+        font-size: 30px;
+    }
+}
+
+/* =================================
+   NORTH SUMATRA TOUR GUIDE
+   DESIGN ENHANCEMENT
+================================= */
+
+/* NAVBAR */
+
+.navbar {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: 0.3s;
+}
+
+.navbar nav a {
+    position: relative;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #c69b55;
+    transform: translateY(-2px);
+}
+
+.nav-button {
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background: #183b35;
+    transform: translateY(-3px);
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    background-position: center;
+}
+
+.hero h1 {
+    letter-spacing: -1px;
+}
+
+.main-button {
+    border-radius: 30px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+}
+
+/* ABOUT */
+
+.about-image img {
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    transition: 0.4s;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+/* DESTINATIONS */
+
+.destination-card {
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.destination-card img {
+    transition: transform 0.5s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.06);
+}
+
+.destination-card:hover {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* PACKAGES */
+
+.package-card {
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.package-card:hover {
+    border-color: #c69b55;
+}
+
+.package-button {
+    border-radius: 30px;
+}
+
+/* BOOKING */
+
+.booking-form {
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+.booking-form input,
+.booking-form select {
+    border-radius: 8px;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+    border-color: #c69b55;
+    box-shadow: 0 0 0 3px rgba(198,155,85,0.12);
+}
+
+.submit-button {
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+/* CONTACT */
+
+.contact-section {
+    background: #f7f8f5;
+    padding: 90px 9%;
+}
+
+.contact-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 45px;
+}
+
+.contact-heading h2 {
+    color: #183b35;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.contact-heading > p:last-child {
+    color: #777;
+    line-height: 1.8;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.contact-card {
+    text-align: center;
+    background: white;
+    padding: 35px 20px;
+    border: 1px solid #eeeeee;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    transition: 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-7px);
+    border-color: #c69b55;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.09);
+}
+
+.contact-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    color: #183b35;
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #777;
+    font-size: 14px;
+}
+
+.contact-button {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 22px;
+    background: #218c54;
+    color: white;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.contact-button:hover {
+    background: #183b35;
+    transform: translateY(-3px);
+}
+
+/* FOOTER */
+
+.footer {
+    padding-top: 70px;
+}
+
+.footer a {
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #d6ae6b;
+    padding-left: 5px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 65px 7%;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-heading h2 {
+        font-size: 30px;
+    }
+}
